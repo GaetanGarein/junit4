@@ -234,8 +234,7 @@ public abstract class BaseTestRunner implements TestListener {
             is = new FileInputStream(getPreferencesFile());
             setPreferences(new Properties(getPreferences()));
             getPreferences().load(is);
-        } catch (IOException ignored) {
-        } catch (SecurityException ignored) {
+        } catch (IOException|SecurityException ignored) {
         } finally {
             try {
                 if (is != null) {
@@ -290,14 +289,14 @@ public abstract class BaseTestRunner implements TestListener {
                     pw.println(line);
                 }
             }
-        } catch (Exception IOException) {
+        } catch (Exception e) {
             return stack; // return the stack unfiltered
         }
         return sw.toString();
     }
 
     protected static boolean showStackRaw() {
-        return !getPreference("filterstack").equals("true") || fgFilterStack == false;
+        return !getPreference("filterstack").equals("true") || !fgFilterStack;
     }
 
     static boolean filterLine(String line) {

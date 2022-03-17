@@ -133,14 +133,14 @@ public class TestSuite implements Test {
         }
 
         Class<?> superClass = theClass;
-        List<String> names = new ArrayList<String>();
+        List<String> names = new ArrayList<>();
         while (Test.class.isAssignableFrom(superClass)) {
             for (Method each : MethodSorter.getDeclaredMethods(superClass)) {
                 addTestMethod(each, names, theClass);
             }
             superClass = superClass.getSuperclass();
         }
-        if (fTests.size() == 0) {
+        if (fTests.isEmpty()) {
             addTest(warning("No tests found in " + theClass.getName()));
         }
     }

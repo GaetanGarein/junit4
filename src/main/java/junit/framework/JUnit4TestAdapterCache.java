@@ -66,7 +66,7 @@ public class JUnit4TestAdapterCache extends HashMap<Description, Test> {
         if (description.isTest()) {
             return Arrays.asList(asTest(description));
         } else {
-            List<Test> returnThis = new ArrayList<Test>();
+            List<Test> returnThis = new ArrayList<>();
             for (Description child : description.getChildren()) {
                 returnThis.add(asTest(child));
             }
