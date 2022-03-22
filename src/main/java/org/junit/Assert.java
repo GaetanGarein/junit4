@@ -26,7 +26,7 @@ public class Assert {
     /**
      * Protect constructor since it is a static only class
      */
-    protected Assert() {
+    public Assert() {
     }
 
     /**
@@ -121,7 +121,7 @@ public class Assert {
         }
     }
 
-    private static boolean equalsRegardingNull(Object expected, Object actual) {
+    public static boolean equalsRegardingNull(Object expected, Object actual) {
         if (expected == null) {
             return actual == null;
         }
@@ -129,7 +129,7 @@ public class Assert {
         return isEquals(expected, actual);
     }
 
-    private static boolean isEquals(Object expected, Object actual) {
+    public static boolean isEquals(Object expected, Object actual) {
         return expected.equals(actual);
     }
 
@@ -177,7 +177,7 @@ public class Assert {
         assertNotEquals(null, unexpected, actual);
     }
 
-    private static void failEquals(String message, Object actual) {
+    public static void failEquals(String message, Object actual) {
         String formatted = "Values should be different. ";
         if (message != null) {
             formatted = message + ". ";
@@ -529,7 +529,7 @@ public class Assert {
      * @param actuals Object array or array of arrays (multi-dimensional array) with
      * actual values
      */
-    private static void internalArrayEquals(String message, Object expecteds,
+    public static void internalArrayEquals(String message, Object expecteds,
             Object actuals) throws ArrayComparisonFailure {
         new ExactComparisonCriteria().arrayEquals(message, expecteds, actuals);
     }
@@ -600,12 +600,12 @@ public class Assert {
         }
     }
 
-    private static boolean doubleIsDifferent(double d1, double d2, double delta) {
-        return !(Double.compare(d1, d2) == 0 | Math.abs(d1 - d2) <= delta);
+    public static boolean doubleIsDifferent(double d1, double d2, double delta) {
+        return !(Double.compare(d1, d2) == 0 || Math.abs(d1 - d2) <= delta);
     }
 
-    private static boolean floatIsDifferent(float f1, float f2, float delta) {
-        return !(Float.compare(f1, f2) == 0 | Math.abs(f1 - f2) <= delta);
+    public static boolean floatIsDifferent(float f1, float f2, float delta) {
+        return !(Float.compare(f1, f2) == 0 || Math.abs(f1 - f2) <= delta);
     }
 
     /**
@@ -734,7 +734,7 @@ public class Assert {
         assertNull(null, object);
     }
 
-    private static void failNotNull(String message, Object actual) {
+    public static void failNotNull(String message, Object actual) {
         String formatted = "";
         if (message != null) {
             formatted = message + " ";
@@ -798,7 +798,7 @@ public class Assert {
         assertNotSame(null, unexpected, actual);
     }
 
-    private static void failSame(String message) {
+    public static void failSame(String message) {
         String formatted = "";
         if (message != null) {
             formatted = message + " ";
@@ -806,7 +806,7 @@ public class Assert {
         fail(formatted + "expected not same");
     }
 
-    private static void failNotSame(String message, Object expected,
+    public static void failNotSame(String message, Object expected,
             Object actual) {
         String formatted = "";
         if (message != null) {
@@ -816,12 +816,12 @@ public class Assert {
                 + ">");
     }
 
-    private static void failNotEquals(String message, Object expected,
+    public static void failNotEquals(String message, Object expected,
             Object actual) {
         fail(format(message, expected, actual));
     }
 
-    static String format(String message, Object expected, Object actual) {
+    public static String format(String message, Object expected, Object actual) {
         String formatted = "";
         if (message != null && !"".equals(message)) {
             formatted = message + " ";
@@ -838,12 +838,12 @@ public class Assert {
         }
     }
 
-    private static String formatClass(Class<?> value) {
+    public static String formatClass(Class<?> value) {
         String className = value.getCanonicalName();
         return className == null ? value.getName() : className;
     }
 
-    private static String formatClassAndValue(Object value, String valueString) {
+    public static String formatClassAndValue(Object value, String valueString) {
         String className = value == null ? "null" : value.getClass().getName();
         return className + "<" + valueString + ">";
     }
@@ -1014,7 +1014,7 @@ public class Assert {
         throw new AssertionError(notThrownMessage);
     }
 
-    private static String buildPrefix(String message) {
+    public static String buildPrefix(String message) {
         return message != null && message.length() != 0 ? message + ": " : "";
     }
 }
