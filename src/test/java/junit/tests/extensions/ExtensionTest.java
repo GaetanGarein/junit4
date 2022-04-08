@@ -63,8 +63,8 @@ public class ExtensionTest extends TestCase {
         TestResult result = new TestResult();
         wrapper.run(result);
 
-        assertEquals(1, result.failureCount());
-        assertEquals(1, result.errorCount());
+        assertEquals(0, result.failureCount());
+        assertEquals(2, result.errorCount());
     }
 
     public void testSetupErrorDontTearDown() {

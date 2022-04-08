@@ -22,7 +22,7 @@ public class ComparisonCompactorTest extends TestCase {
 
     public void testSame() {
         String failure = new ComparisonCompactor(1, "ab", "ab").compact(null);
-        assertEquals("expected:<ab> but was:<ab>", failure);
+        assertEquals("expected: java.lang.String<ab> but was: java.lang.String<ab>", failure);
     }
 
     public void testNoContextStartAndEndSame() {

@@ -11,7 +11,7 @@ public class DoublePrecisionAssertTest extends TestCase {
     public void testAssertEqualsNaNFails() {
         try {
             assertEquals(1.234, Double.NaN, 0.0);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -20,7 +20,7 @@ public class DoublePrecisionAssertTest extends TestCase {
     public void testAssertNaNEqualsFails() {
         try {
             assertEquals(Double.NaN, 1.234, 0.0);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -33,7 +33,7 @@ public class DoublePrecisionAssertTest extends TestCase {
     public void testAssertPosInfinityNotEqualsNegInfinity() {
         try {
             assertEquals(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, 0.0);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -42,7 +42,7 @@ public class DoublePrecisionAssertTest extends TestCase {
     public void testAssertPosInfinityNotEquals() {
         try {
             assertEquals(Double.POSITIVE_INFINITY, 1.23, 0.0);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();

@@ -1,6 +1,6 @@
 package junit.tests.framework;
 
-import junit.framework.ComparisonFailure;
+import org.junit.ComparisonFailure;
 import junit.framework.TestCase;
 
 public class ComparisonFailureTest extends TestCase {
@@ -25,7 +25,7 @@ public class ComparisonFailureTest extends TestCase {
         try {
             assertEquals("woops!", "a", "b");
         } catch (ComparisonFailure e) {
-            if (!e.toString().startsWith("junit.framework.ComparisonFailure: woops! expected:<")) {
+            if (!e.toString().startsWith("org.junit.ComparisonFailure: woops! expected:<")) {
                 fail("Unexpected message: " + e);
             }
             return;
@@ -37,7 +37,7 @@ public class ComparisonFailureTest extends TestCase {
         try {
             assertEquals("a", "b");
         } catch (ComparisonFailure e) {
-            if (!e.toString().startsWith("junit.framework.ComparisonFailure: expected:<")) {
+            if (!e.toString().startsWith("org.junit.ComparisonFailure: expected:<")) {
                 fail("Unexpected message: " + e);
             }
             return;

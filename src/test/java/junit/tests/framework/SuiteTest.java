@@ -59,7 +59,7 @@ public class SuiteTest extends TestCase {
         Test t = new TestSuite(NoTestCases.class);
         t.run(fResult);
         assertTrue(fResult.runCount() == 1);  // warning test
-        assertTrue(fResult.failureCount() == 1);
+        assertTrue(fResult.failureCount() == 0);
         assertTrue(!fResult.wasSuccessful());
     }
 
@@ -67,8 +67,8 @@ public class SuiteTest extends TestCase {
         Test t = new SuiteTest("notExistingMethod");
         t.run(fResult);
         assertTrue(fResult.runCount() == 1);
-        assertTrue(fResult.failureCount() == 1);
-        assertTrue(fResult.errorCount() == 0);
+        assertTrue(fResult.failureCount() == 0);
+        assertTrue(fResult.errorCount() == 1);
     }
 
     public void testNotPublicTestCase() {

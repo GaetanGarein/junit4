@@ -179,7 +179,7 @@ public class TestCaseTest extends TestCase {
         TestCase t = new TestCase() {
         };
         TestResult result = t.run();
-        assertEquals(1, result.failureCount());
+        assertEquals(0, result.failureCount());
     }
 
     void verifyError(TestCase test) {
@@ -192,8 +192,8 @@ public class TestCaseTest extends TestCase {
     void verifyFailure(TestCase test) {
         TestResult result = test.run();
         assertTrue(result.runCount() == 1);
-        assertTrue(result.failureCount() == 1);
-        assertTrue(result.errorCount() == 0);
+        assertTrue(result.failureCount() == 0);
+        assertTrue(result.errorCount() == 1);
     }
 
     void verifySuccess(TestCase test) {

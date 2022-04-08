@@ -1,8 +1,8 @@
 package junit.tests.framework;
 
 import junit.framework.AssertionFailedError;
-import junit.framework.ComparisonFailure;
 import junit.framework.TestCase;
+import org.junit.ComparisonFailure;
 
 public class AssertTest extends TestCase {
 
@@ -20,7 +20,7 @@ public class AssertTest extends TestCase {
         // We have to throw the exception manually.
         try {
             fail();
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         throw new AssertionFailedError();
@@ -31,8 +31,8 @@ public class AssertTest extends TestCase {
         // We have to throw the exception manually.
         try {
             fail();
-        } catch (AssertionFailedError e) {
-            assertEquals("junit.framework.AssertionFailedError", e.toString());
+        } catch (AssertionError e) {
+            assertEquals("java.lang.AssertionError", e.toString());
             return;
         }
         throw new AssertionFailedError();
@@ -43,8 +43,8 @@ public class AssertTest extends TestCase {
         // We have to throw the exception manually.
         try {
             fail("woops!");
-        } catch (AssertionFailedError e) {
-            assertEquals("junit.framework.AssertionFailedError: woops!", e.toString());
+        } catch (AssertionError e) {
+            assertEquals("java.lang.AssertionError: woops!", e.toString());
             return;
         }
         throw new AssertionFailedError();
@@ -55,7 +55,7 @@ public class AssertTest extends TestCase {
         assertEquals(o, o);
         try {
             assertEquals(new Object(), new Object());
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -73,7 +73,7 @@ public class AssertTest extends TestCase {
         try {
             assertEquals(null, "foo");
             fail();
-        } catch (ComparisonFailure e) {
+        } catch (AssertionError e) {
         }
     }
 
@@ -81,7 +81,7 @@ public class AssertTest extends TestCase {
         try {
             assertEquals("foo", null);
             fail();
-        } catch (ComparisonFailure e) {
+        } catch (AssertionError e) {
             e.getMessage(); // why no assertion?
         }
     }
@@ -89,7 +89,7 @@ public class AssertTest extends TestCase {
     public void testAssertNullNotEqualsNull() {
         try {
             assertEquals(null, new Object());
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             e.getMessage(); // why no assertion?
             return;
         }
@@ -100,7 +100,7 @@ public class AssertTest extends TestCase {
         assertNull(null);
         try {
             assertNull(new Object());
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -110,7 +110,7 @@ public class AssertTest extends TestCase {
         assertNotNull(new Object());
         try {
             assertNotNull(null);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -120,7 +120,7 @@ public class AssertTest extends TestCase {
         assertTrue(true);
         try {
             assertTrue(false);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -130,7 +130,7 @@ public class AssertTest extends TestCase {
         assertFalse(false);
         try {
             assertFalse(true);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -141,7 +141,7 @@ public class AssertTest extends TestCase {
         assertSame(o, o);
         try {
             assertSame(new Integer(1), new Integer(1));
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -154,7 +154,7 @@ public class AssertTest extends TestCase {
         try {
             Integer obj = new Integer(1);
             assertNotSame(obj, obj);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -163,7 +163,7 @@ public class AssertTest extends TestCase {
     public void testAssertNotSameFailsNull() {
         try {
             assertNotSame(null, null);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();

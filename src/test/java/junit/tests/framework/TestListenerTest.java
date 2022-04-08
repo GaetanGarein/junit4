@@ -63,7 +63,7 @@ public class TestListenerTest extends TestCase implements TestListener {
             }
         };
         test.run(fResult);
-        assertEquals(1, fFailureCount);
+        assertEquals(0, fFailureCount);
         assertEquals(1, fEndCount);
     }
 

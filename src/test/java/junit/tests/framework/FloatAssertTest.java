@@ -11,7 +11,7 @@ public class FloatAssertTest extends TestCase {
     public void testAssertEqualsNaNFails() {
         try {
             assertEquals(1.234f, Float.NaN, 0.0);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -20,7 +20,7 @@ public class FloatAssertTest extends TestCase {
     public void testAssertNaNEqualsFails() {
         try {
             assertEquals(Float.NaN, 1.234f, 0.0);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -33,7 +33,7 @@ public class FloatAssertTest extends TestCase {
     public void testAssertPosInfinityNotEqualsNegInfinity() {
         try {
             assertEquals(Float.POSITIVE_INFINITY, Float.NEGATIVE_INFINITY, 0.0);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
@@ -42,7 +42,7 @@ public class FloatAssertTest extends TestCase {
     public void testAssertPosInfinityNotEquals() {
         try {
             assertEquals(Float.POSITIVE_INFINITY, 1.23f, 0.0);
-        } catch (AssertionFailedError e) {
+        } catch (AssertionError e) {
             return;
         }
         fail();
