@@ -36,7 +36,8 @@ public class MaxHistory implements Serializable {
                 return readHistory(file);
             } catch (CouldNotReadCoreException e) {
                 e.printStackTrace();
-                file.delete();
+                boolean result = file.delete();
+                System.out.println(result);
             }
         }
         return new MaxHistory(file);

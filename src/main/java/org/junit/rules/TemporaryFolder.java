@@ -281,10 +281,12 @@ public class TemporaryFolder extends ExternalResource {
             String folderName = tmpName.substring(0, tmpName.length() - suffix.length());
             createdFolder = new File(folderName);
             if (createdFolder.mkdir()) {
-                tmpFile.delete();
+                boolean result = tmpFile.delete();
+                System.out.println(result);
                 return createdFolder;
             }
-            tmpFile.delete();
+            boolean result = tmpFile.delete();
+            System.out.println(result);
         }
         throw new IOException("Unable to create temporary directory in: "
             + parentFolder.toString() + ". Tried " + TEMP_DIR_ATTEMPTS + " times. "
