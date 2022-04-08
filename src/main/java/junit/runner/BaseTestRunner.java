@@ -14,6 +14,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.text.NumberFormat;
 import java.util.Properties;
+import java.util.logging.Level; 
+import java.util.logging.Logger;
 
 import junit.framework.AssertionFailedError;
 import junit.framework.Test;
@@ -33,6 +35,7 @@ public abstract class BaseTestRunner implements TestListener {
     static int fgMaxMessageLength = 500;
     static boolean fgFilterStack = true;
     boolean fLoading = true;
+    private static final Logger logger = Logger.getLogger("BaseTestRunner"); 
 
     /*
     * Implementation of TestListener
@@ -163,7 +166,7 @@ public abstract class BaseTestRunner implements TestListener {
                 if (args.length > i + 1) {
                     suiteName = extractClassName(args[i + 1]);
                 } else {
-                    System.out.println("Missing Test class name");
+                    logger.log(Level.INFO, "Missing Test class name");
                 }
                 i++;
             } else {
