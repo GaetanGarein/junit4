@@ -24,7 +24,6 @@ import org.junit.runner.notification.RunListener;
  * </ul>
  */
 public class MaxHistory implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     /**
      * Loads a {@link MaxHistory} from {@code file}, or generates a new one that
@@ -36,8 +35,7 @@ public class MaxHistory implements Serializable {
                 return readHistory(file);
             } catch (CouldNotReadCoreException e) {
                 e.printStackTrace();
-                boolean result = file.delete();
-                System.out.println(result);
+                System.out.println(file.delete());
             }
         }
         return new MaxHistory(file);

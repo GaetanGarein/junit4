@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public class ParameterizedAssertionError extends AssertionError {
-    private static final long serialVersionUID = 1L;
 
     public ParameterizedAssertionError(Throwable targetException,
             String methodName, Object... params) {
