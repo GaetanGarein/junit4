@@ -55,8 +55,10 @@ public class ActiveTestSuite extends TestSuite {
         while (fActiveTestDeathCount < testCount()) {
             try {
                 wait();
-            } catch (InterruptedException e) {
-                return; // ignore
+            } catch (InterruptedException ie) {
+                Thread.currentThread().interrupt();
+            } catch (Exception ee) {
+                return;
             }
         }
     }

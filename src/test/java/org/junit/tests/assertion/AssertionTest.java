@@ -178,7 +178,9 @@ public class AssertionTest {
 
     @Test
     public void multiDimensionalArraysAreEqual() {
-        assertArrayEquals((new Object[][]{{true, true}, {false, false}}), (new Object[][]{{true, true}, {false, false}}));
+        Object[][] obj1 = {{true, true}, {false, false}};
+        Object[][] obj2 = {{true, true}, {false, false}};
+        assertArrayEquals(obj1, obj2);
     }
 
     @Test
@@ -190,12 +192,24 @@ public class AssertionTest {
 
     @Test
     public void oneDimensionalPrimitiveArraysAreEqual() {
-        assertArrayEquals(new boolean[]{true}, new boolean[]{true});
-        assertArrayEquals(new byte[]{1}, new byte[]{1});
-        assertArrayEquals(new char[]{1}, new char[]{1});
-        assertArrayEquals(new short[]{1}, new short[]{1});
-        assertArrayEquals(new int[]{1}, new int[]{1});
-        assertArrayEquals(new long[]{1}, new long[]{1});
+        boolean[] bool1 = {true};
+        boolean[] bool2 = {true};
+        byte[] byte1 = {1};
+        byte[] byte2 = {1};
+        char[] char1 = {1};
+        char[] char2 = {1};
+        short[] short1 = {1};
+        short[] short2 = {1};
+        int[] int1 = {1};
+        int[] int2 = {1};
+        long[] long1 = {1};
+        long[] long2 = {1};
+        assertArrayEquals(bool1, bool2);
+        assertArrayEquals(byte1, byte2);
+        assertArrayEquals(char1, char2);
+        assertArrayEquals(short1, short2);
+        assertArrayEquals(int1, int2);
+        assertArrayEquals(long1, long2);
         assertArrayEquals(new double[]{1.0}, new double[]{1.0}, 1.0);
         assertArrayEquals(new float[]{1.0f}, new float[]{1.0f}, 1.0f);
     }
@@ -227,7 +241,9 @@ public class AssertionTest {
 
     @Test
     public void multiDimensionalArraysDeclaredAsOneDimensionalAreEqual() {
-        assertArrayEquals((new Object[]{new Object[]{true, true}, new Object[]{false, false}}), (new Object[]{new Object[]{true, true}, new Object[]{false, false}}));
+        Object[] obj1 = {new Object[]{true, true}, new Object[]{false, false}};
+        Object[] obj2 = {new Object[]{true, true}, new Object[]{false, false}};
+        assertArrayEquals(obj1, obj2);
     }
 
     @Test
@@ -399,14 +415,26 @@ public class AssertionTest {
     @Test
     public void equals() {
         Object o = new Object();
+        boolean bool1 = true;
+        boolean bool2 = true;
+        byte byte1 = 1;
+        byte byte2 = 1;
+        char char1 = 'a';
+        char char2 = 'a';
+        short short1 = 1;
+        short short2 = 1;
+        int int1 = 1;
+        int int2 = 1;
+        long long1 = 1;
+        long long2 = 1;
         assertEquals(o, o);
         assertEquals("abc", "abc");
-        assertEquals(true, true);
-        assertEquals((byte) 1, (byte) 1);
-        assertEquals('a', 'a');
-        assertEquals((short) 1, (short) 1);
-        assertEquals(1, 1); // int by default, cast is unnecessary
-        assertEquals(1l, 1l);
+        assertEquals(bool1, bool2);
+        assertEquals(byte1, byte2);
+        assertEquals(char1, char2);
+        assertEquals(short1, short2);
+        assertEquals(int1, int2); // int by default, cast is unnecessary
+        assertEquals(long1, long2);
         assertEquals(1.0, 1.0, 0.0);
         assertEquals(1.0d, 1.0d, 0.0d);
     }

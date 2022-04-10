@@ -23,6 +23,7 @@ public class SampleJUnit3Tests {
         }
 
         public void testAlwaysPasses() {
+            assertTrue(true);
         }
     }
 

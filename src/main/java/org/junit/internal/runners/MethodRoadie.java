@@ -76,6 +76,8 @@ public class MethodRoadie {
                     result.get(0, TimeUnit.MILLISECONDS); // throws the exception if one occurred during the invocation
                 } catch (TimeoutException e) {
                     addFailure(new TestTimedOutException(timeout, TimeUnit.MILLISECONDS));
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
                 } catch (Exception e) {
                     addFailure(e);
                 }
