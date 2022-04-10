@@ -178,7 +178,9 @@ public class AssertionTest {
 
     @Test
     public void multiDimensionalArraysAreEqual() {
-        assertArrayEquals((new Object[][]{{true, true}, {false, false}}), (new Object[][]{{true, true}, {false, false}}));
+        Object[][] var1 = {{true, true}, {false, false}};
+        Object[][] var2 = {{true, true}, {false, false}};
+        assertArrayEquals(var1, var2);
     }
 
     @Test
@@ -190,12 +192,25 @@ public class AssertionTest {
 
     @Test
     public void oneDimensionalPrimitiveArraysAreEqual() {
-        assertArrayEquals(new boolean[]{true}, new boolean[]{true});
-        assertArrayEquals(new byte[]{1}, new byte[]{1});
-        assertArrayEquals(new char[]{1}, new char[]{1});
-        assertArrayEquals(new short[]{1}, new short[]{1});
-        assertArrayEquals(new int[]{1}, new int[]{1});
-        assertArrayEquals(new long[]{1}, new long[]{1});
+        boolean[] var1 = {true};
+        boolean[] var2 = {true};
+        assertArrayEquals(var1, var2);
+        byte[] var3 = {1};
+        byte[] var4 = {1};
+        assertArrayEquals(var3, var4);
+        char[] var5 = {1};
+        char[] var6 = {1};
+        assertArrayEquals(var5, var6);
+        short[] var7 = {1};
+        short[] var8 = {1};
+        assertArrayEquals(var7, var8);
+        int[] var9 = {1};
+        int[] var10 = {1};
+        assertArrayEquals(var9, var10);
+        long[] var11 = {1};
+        long[] var12 = {1};
+        assertArrayEquals(var11, var12);
+
         assertArrayEquals(new double[]{1.0}, new double[]{1.0}, 1.0);
         assertArrayEquals(new float[]{1.0f}, new float[]{1.0f}, 1.0f);
     }
@@ -401,12 +416,24 @@ public class AssertionTest {
         Object o = new Object();
         assertEquals(o, o);
         assertEquals("abc", "abc");
-        assertEquals(true, true);
-        assertEquals((byte) 1, (byte) 1);
-        assertEquals('a', 'a');
-        assertEquals((short) 1, (short) 1);
-        assertEquals(1, 1); // int by default, cast is unnecessary
-        assertEquals(1l, 1l);
+        boolean var1 = true;
+        boolean var2 = true;
+        assertEquals(var1, var2);
+        byte var3 = 1;
+        byte var4 = 1;
+        assertEquals(var3, var4);
+        char var5 = 'a';
+        char var6 = 'a';
+        assertEquals(var5, var6);
+        short var7 = 1;
+        short var8 = 1;
+        assertEquals(var7, var8);
+        int var9 = 1;
+        int var10 = 1;
+        assertEquals(var9, var10); // int by default, cast is unnecessary
+        long var11 = 1L;
+        long var12 = 1L;
+        assertEquals(var11, var12);
         assertEquals(1.0, 1.0, 0.0);
         assertEquals(1.0d, 1.0d, 0.0d);
     }

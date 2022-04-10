@@ -36,8 +36,13 @@ public class SimpleTest {
 
     @Test
     public void testEquals() {
-        assertEquals(12, 12);
-        assertEquals(12L, 12L);
+        int var1 = 12;
+        int var2 = 12;
+        long var3 = 12L;
+        long var4 = 12L;
+
+        assertEquals(var1, var2);
+        assertEquals(var3, var4);
         assertEquals(new Long(12), new Long(12));
 
         assertEquals("Size", 12, 13);
